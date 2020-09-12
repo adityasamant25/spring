@@ -1,0 +1,16 @@
+server:
+  port: 8083
+  ssl:
+    client-auth: need
+    enabled: true
+    key-alias: ratings-data-service
+    key-store: classpath:ratings-data-service.jks
+    key-store-password: trustme
+    key-store-provider: SUN
+    key-store-type: JKS
+    trust-store: classpath:ratings-data-service.jks
+    trust-store-password: trustme
+    trust-store-type: JKS
+spring:
+  application:
+    name: ratings-data-service
