@@ -1,0 +1,29 @@
+default:
+  movieInfoServiceEndpoint: https://movie-info-service/movies/
+  ratingsDataServiceEndpoint: https://ratings-data-service/ratingsdata/users/
+  user:
+    password: foo
+hystrix:
+  dashboard:
+    proxyStreamAllowList: '*'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, hystrix.stream
+server:
+  port: 8081
+  ssl:
+    client-auth: need
+    enabled: true
+    key-alias: movie-catalog-service
+    key-store: classpath:movie-catalog-service.jks
+    key-store-password: trustme
+    key-store-provider: SUN
+    key-store-type: JKS
+    trust-store: classpath:movie-catalog-service.jks
+    trust-store-password: trustme
+    trust-store-type: JKS
+spring:
+  application:
+    name: movie-catalog-service
