@@ -4,7 +4,7 @@ server:
   port: 8082
   ssl:
     client-auth: need
-    enabled: true
+    enabled: false
     key-alias: movie-info-service
     key-store: classpath:movie-info-service.jks
     key-store-password: trustme
@@ -16,3 +16,18 @@ server:
 spring:
   application:
     name: movie-info-service
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true   

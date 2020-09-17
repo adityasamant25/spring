@@ -2,7 +2,7 @@ server:
   port: 8083
   ssl:
     client-auth: need
-    enabled: true
+    enabled: false
     key-alias: ratings-data-service
     key-store: classpath:ratings-data-service.jks
     key-store-password: trustme
@@ -14,3 +14,18 @@ server:
 spring:
   application:
     name: ratings-data-service
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true      

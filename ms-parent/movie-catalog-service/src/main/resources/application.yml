@@ -1,21 +1,32 @@
 default:
-  movieInfoServiceEndpoint: https://movie-info-service/movies/
-  ratingsDataServiceEndpoint: https://ratings-data-service/ratingsdata/users/
+  movieInfoServiceEndpoint: http://movie-info-service/movies/
+  ratingsDataServiceEndpoint: http://ratings-data-service/ratingsdata/users/
   user:
     password: foo
 hystrix:
   dashboard:
     proxyStreamAllowList: '*'
+
 management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
   endpoints:
     web:
       exposure:
-        include: info, health, hystrix.stream
+        include: info, health, hystrix.stream, prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true 
+
 server:
   port: 8081
   ssl:
-    client-auth: want
-    enabled: true
+    client-auth: need
+    enabled: false
     key-alias: movie-catalog-service
     key-store: classpath:movie-catalog-service.jks
     key-store-password: trustme
