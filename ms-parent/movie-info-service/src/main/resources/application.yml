@@ -4,7 +4,7 @@ server:
   port: 8082
   ssl:
     client-auth: need
-    enabled: false
+    enabled: true
     key-alias: movie-info-service
     key-store: classpath:movie-info-service.jks
     key-store-password: trustme

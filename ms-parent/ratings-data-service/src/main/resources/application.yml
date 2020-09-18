@@ -2,7 +2,7 @@ server:
   port: 8083
   ssl:
     client-auth: need
-    enabled: false
+    enabled: true
     key-alias: ratings-data-service
     key-store: classpath:ratings-data-service.jks
     key-store-password: trustme
